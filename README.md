@@ -10,8 +10,7 @@ For that reason, I use xml design image for smartwatch.
 
 # Usage
 If you want to use my code to your project and publish on Google Play Store, Please contain attribution for the origin work:)
-Github - https://github.com/qwes98/Time-Logging
-Email - <qwes8873@gmail.com>
+Github - https://github.com/qwes98/Time-Logging ,Email - <qwes8873@gmail.com>
 
 # Lisence
 Released under the [MIT Lisence](https://opensource.org/licenses/mit-license.php)
