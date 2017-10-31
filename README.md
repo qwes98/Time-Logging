@@ -1,4 +1,4 @@
-# Time-Logging
+# Time-Logging App
 Code for Time Logging Android App. You can use this app with android phone and smart watch powered by android wear 2.0
 
 Android emulator don't support bluetooth connection. So I can't connect avd phone and avd smartwatch.
