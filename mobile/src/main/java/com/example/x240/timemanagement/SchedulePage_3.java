@@ -60,6 +60,7 @@ public class SchedulePage_3 extends android.support.v4.app.Fragment {
                     String tagColorCode = tagMapForBackground.get(tagName);
 
                     String[] startParts = cursor.getString(6).split(":");
+                    int startHour = Integer.parseInt(startParts[0]);
                     int startMin = Integer.parseInt(startParts[1]);
                     String startMinStr = "00";
                     if (startMin >= 0 && startMin <= 7) {
@@ -71,11 +72,13 @@ public class SchedulePage_3 extends android.support.v4.app.Fragment {
                     } else if (startMin >= 38 && startMin <= 52) {
                         startMinStr = "45";
                     } else {
+                        startHour++;
                         startMinStr = "00";
                     }
-                    int startTimeNum = Integer.parseInt(startParts[0] + startMinStr);
+                    int startTimeNum = Integer.parseInt(Integer.toString(startHour) + startMinStr);
 
                     String[] endParts = cursor.getString(7).split(":");
+                    int endHour = Integer.parseInt(endParts[0]);
                     int endMin = Integer.parseInt(endParts[1]);
                     String endMinStr = "00";
                     if (endMin >= 0 && endMin <= 7) {
@@ -87,9 +90,10 @@ public class SchedulePage_3 extends android.support.v4.app.Fragment {
                     } else if (endMin >= 38 && endMin <= 52) {
                         endMinStr = "45";
                     } else {
+                        endHour++;
                         endMinStr = "00";
                     }
-                    int endTimeNum = Integer.parseInt(endParts[0] + endMinStr);
+                    int endTimeNum = Integer.parseInt(Integer.toString(endHour) + endMinStr);
 
                     String todoName = cursor.getString(2);
 
@@ -99,7 +103,7 @@ public class SchedulePage_3 extends android.support.v4.app.Fragment {
                         continue;
                     }
 
-                    if (startTimeNum != endTimeNum) {
+                    if (startTimeNum != endTimeNum && endTimeNum - startTimeNum > 5) {
                         if (endTimeNum <= 400) {             // After midnight
                             if (startTimeNum <= 400) {
                                 changeBGColorFromTo(startTimeNum, endTimeNum, tagColorCode);
